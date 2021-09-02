@@ -7,6 +7,7 @@ use App\Http\Controllers\CityController;
 use App\Http\Controllers\CityGroupController;
 use App\Http\Controllers\CampaignController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\DiscountController;
 
 /*
 |--------------------------------------------------------------------------
@@ -61,4 +62,14 @@ Route::group(['prefix' => 'product'], function () {
     Route::delete('/{id}', [ProductController::class, 'destroy'])->where('id', '[0-9]+')->name('delete-product');
     Route::delete('/force/{id}', [ProductController::class, 'forceDestroy'])->where('id', '[0-9]+')->name('force-delete-product');
     Route::post('/{id}', [ProductController::class, 'restore'])->name('restore-product');
+});
+
+Route::group(['prefix' => 'discount'], function () {
+    Route::get('/{id}', [DiscountController::class, 'get'])->where('id', '[0-9]+')->name('discount');
+    Route::get('/', [DiscountController::class, 'search'])->name('search-discounts');
+    Route::post('/', [DiscountController::class, 'store'])->name('store-discount');
+    Route::put('/{id}', [DiscountController::class, 'update'])->where('id', '[0-9]+')->name('update-discount');
+    Route::delete('/{id}', [DiscountController::class, 'destroy'])->where('id', '[0-9]+')->name('delete-discount');
+    Route::delete('/force/{id}', [DiscountController::class, 'forceDestroy'])->where('id', '[0-9]+')->name('force-delete-discount');
+    Route::post('/{id}', [DiscountController::class, 'restore'])->name('restore-discount');
 });
