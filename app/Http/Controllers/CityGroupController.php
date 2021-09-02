@@ -5,8 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\CityGroup;
 use Illuminate\Http\Request;
 
-use App\Http\Requests\State\StoreCityGroupRequest;
-use App\Http\Requests\State\UpdateCityGroupRequest;
+use App\Http\Requests\CityGroupRequests\StoreCityGroupRequest;
+use App\Http\Requests\CityGroupRequests\UpdateCityGroupRequest;
 
 class CityGroupController extends Controller
 {
@@ -163,7 +163,7 @@ class CityGroupController extends Controller
             $cityGroup = CityGroup::findOrFail($id);
             $cityGroup->delete();
 
-            return response()->json(['msg' => 'Grupo de cidades excluída com sucesso!'], 200);
+            return response()->json(['msg' => 'Grupo de cidades excluído com sucesso!'], 200);
         } catch (\Throwable $th) {
             return response()->json(['msg' => 'Erro na exclusão do grupo de cidades!'], 500);
         }

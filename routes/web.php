@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
 use App\Http\Controllers\CityController;
+use App\Http\Controllers\CityGroupController;
 use App\Http\Controllers\ProductController;
 
 /*
@@ -39,6 +40,16 @@ Route::group(['prefix' => 'city'], function () {
     Route::delete('/{id}', [CityController::class, 'destroy'])->where('id', '[0-9]+')->name('delete-city');
     Route::delete('/force/{id}', [CityController::class, 'forceDestroy'])->where('id', '[0-9]+')->name('force-delete-city');
     Route::post('/{id}', [CityController::class, 'restore'])->name('restore-city');
+});
+
+Route::group(['prefix' => 'city-group'], function () {
+    Route::get('/{id}', [CityGroupController::class, 'get'])->where('id', '[0-9]+')->name('city-group');
+    Route::get('/', [CityGroupController::class, 'search'])->name('search-city-groups');
+    Route::post('/', [CityGroupController::class, 'store'])->name('store-city-group');
+    Route::put('/{id}', [CityGroupController::class, 'update'])->where('id', '[0-9]+')->name('update-city-group');
+    Route::delete('/{id}', [CityGroupController::class, 'destroy'])->where('id', '[0-9]+')->name('delete-city-group');
+    Route::delete('/force/{id}', [CityGroupController::class, 'forceDestroy'])->where('id', '[0-9]+')->name('force-delete-city-group');
+    Route::post('/{id}', [CityGroupController::class, 'restore'])->name('restore-city-group');
 });
 
 Route::group(['prefix' => 'product'], function () {
