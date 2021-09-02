@@ -5,8 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Campaign;
 use Illuminate\Http\Request;
 
-use App\Http\Requests\State\StoreCampaignRequest;
-use App\Http\Requests\State\UpdateCampaignRequest;
+use App\Http\Requests\CampaignRequests\StoreCampaignRequest;
+use App\Http\Requests\CampaignRequests\UpdateCampaignRequest;
 
 class CampaignController extends Controller
 {

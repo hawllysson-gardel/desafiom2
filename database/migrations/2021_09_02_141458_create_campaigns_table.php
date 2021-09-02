@@ -15,8 +15,8 @@ class CreateCampaignsTable extends Migration
     {
         Schema::create('campaigns', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('description');
+            $table->string('name')->unique();
+            $table->string('description')->nullable();
             $table->softDeletes();
             $table->timestamps();
         });
