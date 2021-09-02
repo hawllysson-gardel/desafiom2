@@ -5,8 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\City;
 use Illuminate\Http\Request;
 
-use App\Http\Requests\State\StoreCityRequest;
-use App\Http\Requests\State\UpdateCityRequest;
+use App\Http\Requests\CityRequests\StoreCityRequest;
+use App\Http\Requests\CityRequests\UpdateCityRequest;
 
 class CityController extends Controller
 {
@@ -99,10 +99,6 @@ class CityController extends Controller
 
             if ($request->has('name') && !(is_null($request->name))) {
                 $city = $city->where('name', 'LIKE', "%{$request->name}%");
-            }
-
-            if ($request->has('description') && !(is_null($request->description))) {
-                $city = $city->where('description', 'LIKE', "%{$request->description}%");
             }
 
             $city = $city->paginate();
