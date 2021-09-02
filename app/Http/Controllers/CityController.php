@@ -6,7 +6,7 @@ use App\Models\City;
 use Illuminate\Http\Request;
 
 use App\Http\Requests\State\StoreCityRequest;
-//use App\Http\Requests\State\UpdateStateRequest;
+use App\Http\Requests\State\UpdateCityRequest;
 
 class CityController extends Controller
 {
@@ -205,4 +205,3 @@ class CityController extends Controller
         }
     }
 }
-
