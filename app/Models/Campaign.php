@@ -19,4 +19,9 @@ class Campaign extends Model
         'name',
         'description'
     ];
+
+    public function cityGroups()
+    {
+        return $this->hasMany(CityGroup::class);
+    }
 }

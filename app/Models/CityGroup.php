@@ -17,11 +17,17 @@ class CityGroup extends Model
      */
     protected $fillable = [
         'name',
-        'description'
+        'description',
+        'campaign_id'
     ];
 
     public function cities()
     {
         return $this->hasMany(City::class);
+    }
+
+    public function campaign()
+    {
+        return $this->belongsTo(Campaign::class)->withTrashed();
     }
 }

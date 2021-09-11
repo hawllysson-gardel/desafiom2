@@ -105,6 +105,10 @@ class CityGroupController extends Controller
                 $cityGroup = $cityGroup->where('description', 'LIKE', "%{$request->description}%");
             }
 
+            if ($request->has('campaign_id')) {
+                $city = $city->whereIn('campaign_id', $request->campaign_id);
+            }
+
             $cityGroup = $cityGroup->paginate();
 
             return response()->json($cityGroup, 200);

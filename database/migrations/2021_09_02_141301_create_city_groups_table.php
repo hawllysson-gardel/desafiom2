@@ -17,8 +17,11 @@ class CreateCityGroupsTable extends Migration
             $table->id();
             $table->string('name')->unique();
             $table->string('description')->nullable();
+            $table->foreignId('campaign_id')->nullable()->comment = 'ID da Campanha - Tabela "campaigns"';
             $table->softDeletes();
             $table->timestamps();
+
+            $table->foreign('campaign_id')->references('id')->on('campaigns')->onDelete('set null');
         });
     }
 
