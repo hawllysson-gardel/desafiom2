@@ -106,7 +106,7 @@ class CityGroupController extends Controller
             }
 
             if ($request->has('campaign_id')) {
-                $city = $city->whereIn('campaign_id', $request->campaign_id);
+                $cityGroup = $cityGroup->whereIn('campaign_id', $request->campaign_id);
             }
 
             $cityGroup = $cityGroup->paginate();
