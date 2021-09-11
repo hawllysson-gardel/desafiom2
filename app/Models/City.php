@@ -16,6 +16,12 @@ class City extends Model
      * @var array
      */
     protected $fillable = [
-        'name'
+        'name',
+        'city_group_id'
     ];
+
+    public function cityGroup()
+    {
+        return $this->belongsTo(CityGroup::class)->withTrashed();
+    }
 }

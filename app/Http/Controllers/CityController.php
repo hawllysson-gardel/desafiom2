@@ -101,6 +101,14 @@ class CityController extends Controller
                 $city = $city->where('name', 'LIKE', "%{$request->name}%");
             }
 
+            if ($request->has('city_group_id') && !(is_null($request->city_group_id))) {
+                $city = $city->where('city_group_id', $request->city_group_id);
+            }
+
+            if ($request->has('city_group_id')) {
+                $city = $city->whereIn('city_group_id', $request->city_group_id);
+            }
+
             $city = $city->paginate();
 
             return response()->json($city, 200);

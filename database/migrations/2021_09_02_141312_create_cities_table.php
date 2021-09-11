@@ -16,8 +16,11 @@ class CreateCitiesTable extends Migration
         Schema::create('cities', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->foreignId('city_group_id')->nullable()->comment = 'ID do Grupo de Cidades - Tabela "city_groups"';
             $table->softDeletes();
             $table->timestamps();
+
+            $table->foreign('city_group_id')->references('id')->on('city_groups')->onDelete('set null');
         });
     }
 

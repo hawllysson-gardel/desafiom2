@@ -19,4 +19,9 @@ class CityGroup extends Model
         'name',
         'description'
     ];
+
+    public function cities()
+    {
+        return $this->hasMany(City::class);
+    }
 }
